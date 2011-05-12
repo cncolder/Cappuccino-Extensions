@@ -29,16 +29,16 @@ var ENV = require("system").env,
     framework = require("cappuccino/jake").framework,
     configuration = ENV["CONFIGURATION"] || "Release";
 
-framework ("CappuccinoExtensions", function(task)
+framework ("Extensions", function(task)
 {
-    task.setBuildIntermediatesPath(FILE.join("Build", "CappuccinoExtensions.build", configuration));
+    task.setBuildIntermediatesPath(FILE.join("Build", "Extensions.build", configuration));
     task.setBuildPath(FILE.join("Build", configuration));
 
-    task.setProductName("CappuccinoExtensions");
+    task.setProductName("Extensions");
     task.setIdentifier("com.280n.CappuccinoExtensions");
     task.setVersion("6.0");
     task.setSummary("Cappuccino Extensions");
-    task.setSources(new FileList("*.j", "CappuccinoExtensions/*.j"));
+    task.setSources(new FileList("*.j", "Extensions/*.j"));
     task.setResources(new FileList("Resources/*"));
     task.setInfoPlistPath("Info.plist");
 
@@ -48,7 +48,7 @@ framework ("CappuccinoExtensions", function(task)
         task.setCompilerFlags("-O");
 });
 
-task("build", ["CappuccinoExtensions"]);
+task("build", ["Extensions"]);
 
 task("debug", function()
 {
